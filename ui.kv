@@ -1,0 +1,37 @@
+<Row@ButtonBehavior+BoxLayout>:
+    index: ""
+    name: ""
+    size_hint_y: None
+    height: "45dp"
+
+    Label:
+        text: root.index
+    Label:
+        text: root.name
+
+
+<MainUI>:
+    orientation: 'vertical'
+
+    BoxLayout:
+        size_hint_y: None
+        height: "50dp"
+
+        Button:
+            text: "Load"
+            on_release: root.load_file()
+
+        Button:
+            text: "Save"
+            on_release: root.save_file()
+
+    RecycleView:
+        id: rv
+        viewclass: 'Row'
+
+        RecycleBoxLayout:
+            default_size: None, dp(45)
+            default_size_hint: 1, None
+            size_hint_y: None
+            height: self.minimum_height
+            orientation: 'vertical'
